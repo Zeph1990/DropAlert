@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:paddingBottom="10dp"
+    tools:context="com.aserrapica.dropalert.MainActivity">
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/view"
+        android:layout_marginTop="85dp"
+        android:checked="true"
+        android:onClick="updatePref"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:text="Servizio DropAlert"
+        android:textSize="25dp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentLeft="true"
+
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/switch1"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        android:elevation="1dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" />
+
+
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:id="@+id/scrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/view"
+                        android:layout_marginTop="15dp"
+                        android:animateLayoutChanges="true">
+
+                        <RelativeLayout
+                            android:id="@+id/ly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp">
+
+                            <TextView
+                                android:id="@+id/sez1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Impostazioni di notifica"
+                                android:textAllCaps="true"
+                                android:textColor="@android:color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:id="@+id/lsez1"
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:layout_below="@+id/sez1"
+                                android:layout_marginTop="5dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <CheckBox
+                                android:id="@+id/checkSound"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lsez1"
+                                android:layout_marginTop="10dp"
+                                android:checked="false"
+                                android:onClick="updatePref"
+                                android:text="Notifica Sonora"
+                                android:textSize="20sp" />
+
+                            <RelativeLayout
+                                android:id="@+id/lsound"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/checkSound">
+
+                                <CheckBox
+                                    android:id="@+id/checkForceSound"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:checked="false"
+                                    android:onClick="updatePref"
+                                    android:scaleX="0.80"
+                                    android:scaleY="0.80"
+                                    android:text="Forza riproduzione anche se silenzioso"
+                                    android:textSize="16dp" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/lsound"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <CheckBox
+                                android:id="@+id/checkMail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lsound"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:checked="false"
+                                android:onClick="updatePref"
+                                android:text="Notifica Email"
+                                android:textSize="20sp" />
+
+                            <RelativeLayout
+                                android:id="@+id/lemail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_below="@+id/checkMail">
+
+                                <EditText
+                                    android:id="@+id/mailaddr"
+                                    android:layout_width="230dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:ems="10"
+                                    android:hint="Indirizzo Email"
+                                    android:inputType="textEmailAddress"
+
+                                    android:textAlignment="center" />
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_toRightOf="@id/mailaddr"
+                                    android:background="@drawable/custom_button"
+                                    android:onClick="savemail"
+                                    android:text="Salva"
+                                    android:textColor="#FFF" />
+
+                                <CheckBox
+                                    android:id="@+id/checkMailLoc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/mailaddr"
+                                    android:layout_centerHorizontal="true"
+                                    android:checked="false"
+                                    android:onClick="updatePref"
+                                    android:scaleX="0.80"
+                                    android:scaleY="0.80"
+                                    android:text="Includi Localizzazione"
+                                    android:textSize="16dp" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/lemail"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <CheckBox
+                                android:id="@+id/checkNum"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lemail"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:checked="false"
+                                android:onClick="updatePref"
+                                android:text="Notifica SMS"
+                                android:textSize="20sp" />
+
+                            <RelativeLayout
+                                android:id="@+id/lnum"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/checkNum">
+
+                                <EditText
+                                    android:id="@+id/smsnum"
+                                    android:layout_width="230dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:ems="10"
+                                    android:hint="Numero"
+                                    android:inputType="number"
+                                    android:textAlignment="center" />
+
+                                <Button
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="35dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_toRightOf="@id/smsnum"
+                                    android:background="@drawable/custom_button"
+                                    android:onClick="savenum"
+                                    android:text="Salva"
+                                    android:textColor="#FFF" />
+
+
+                                <CheckBox
+                                    android:id="@+id/checkNumLoc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/smsnum"
+                                    android:layout_centerHorizontal="true"
+                                    android:checked="false"
+                                    android:onClick="updatePref"
+                                    android:scaleX="0.80"
+                                    android:scaleY="0.80"
+                                    android:text="Includi Localizzazione"
+                                    android:textSize="16dp" />
+                            </RelativeLayout>
+
+                            <View
+                                android:id="@+id/ulsez1"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/lnum"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <TextView
+                                android:id="@+id/sez2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/ulsez1"
+                                android:layout_marginTop="25dp"
+                                android:text="Impostazioni globali"
+                                android:textAllCaps="true"
+                                android:textColor="@android:color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:id="@+id/lsez2"
+                                android:layout_width="match_parent"
+                                android:layout_height="3dp"
+                                android:layout_below="@+id/sez2"
+                                android:layout_marginTop="5dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <CheckBox
+                                android:id="@+id/checkAuto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/lsez2"
+                                android:layout_marginTop="10dp"
+                                android:checked="false"
+                                android:onClick="updatePref"
+                                android:text="Lancia il servizio DropAlert all'avvio di Android"
+                                android:textSize="20sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/checkAuto"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <CheckBox
+                                android:id="@+id/checkRetard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/checkAuto"
+                                android:layout_marginTop="20dp"
+                                android:checked="false"
+                                android:onClick="updatePref"
+                                android:text="Ritarda l'invio di SMS o Email di 15 secondi."
+                                android:textSize="20sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/checkRetard"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <TextView
+                                android:id="@+id/tvcal"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/checkRetard"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="20dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:clickable="true"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center_vertical"
+                                android:onClick="launchCalibration"
+                                android:text="Effettua calibrazione"
+                                android:textColor="#000"
+                                android:textSize="20sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/tvcal"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray" />
+
+                            <TextView
+                                android:id="@+id/tvmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_below="@id/tvcal"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="20dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:clickable="true"
+                                android:focusableInTouchMode="false"
+                                android:gravity="center_vertical"
+                                android:onClick="changeAccount"
+                                android:text="Cambia Account Gmail"
+                                android:textColor="#000"
+                                android:textSize="20sp"
+                                android:visibility="gone" />
+
+                            <View
+                                android:id="@+id/ltvmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@id/tvmail"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@android:color/darker_gray"
+                                android:visibility="gone" />
+                        </RelativeLayout>
+                    </ScrollView>
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btnup"
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/colorAccent"
+                        android:backgroundTint="@color/colorAccent"
+                        android:onClick="updatelist"
+                        android:text="Aggiorna lista"
+                        android:textColor="#FFF" />
+
+                    <Button
+                        android:id="@+id/btdel"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_toRightOf="@id/btnup"
+                        android:background="@color/colorAccent"
+                        android:backgroundTint="@color/colorAccent"
+                        android:onClick="deletelist"
+                        android:text="Elimina lista"
+                        android:textColor="#FFF" />
+
+                    <ListView
+                        android:id="@+id/listView1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_below="@id/btnup"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp" />
+
+                </RelativeLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorAccent"
+        android:elevation="5dp"
+        android:onClick="fakealarm"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|top"
+            android:background="@drawable/drallogo"
+            android:contentDescription="logo" />
+    </FrameLayout>
+
+
+</RelativeLayout>
+

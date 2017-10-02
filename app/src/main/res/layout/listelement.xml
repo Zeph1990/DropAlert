@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="80dip"
+    android:padding="5dip">
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/datatext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/data"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/ora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/data"
+        android:text="Ora:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/oratext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/data"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/ora"
+        android:scrollHorizontally="false"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/loclink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ora"
+        android:scrollHorizontally="false"
+        android:singleLine="true"
+        android:text="Posizione:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/loclinktext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ora"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@id/loclink"
+        android:autoLink="web"
+        android:scrollHorizontally="false"
+        android:singleLine="true"
+        android:text="Non disponibile"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000" />
+
+
+</RelativeLayout>

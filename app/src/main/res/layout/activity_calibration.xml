@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aserrapica.dropalert.CalibrationActivity">
+
+
+    <TextView
+        android:id="@+id/sez1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="calibrazione"
+        android:textAllCaps="true"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/lsez1"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/sez1"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lsez1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Per funzionare al meglio DropAlert potrebbe necessitare di una veloce calibrazione.\nLa calibrazione consiste nel simulare la caduta dello smartphone 3 volte.\nUtilizza una superficie non troppo morbida e lascia cadere, senza spingerlo, il tuo smartphone da un'altezza di circa 40cm. Esegui la calibrazione con la tua solita cover.\nUna volta lasciato cadere lo smartphone, prima di rialzarlo, schiaccia sul tasto 'OK' "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="50dp"
+                android:background="@color/colorAccent"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="calibration"
+                android:text="Ok, iniziamo"
+                android:textColor="#FFF"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/nonora"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_below="@+id/button2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:onClick="close"
+                android:text="Non ora"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/colorCancel"
+                android:textSize="18dp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
